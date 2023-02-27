@@ -12,11 +12,10 @@
   margin: 20px auto;
   border-radius: 5px;
   background: #fff;
-  box-shadow: 0 0 4px 5px rgba(0,0,0,0.5);
+  box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.5);
 }
 
 .header {
-  height: fit-content;
   display: flex;
   justify-content: space-between;
   align-items: center;
