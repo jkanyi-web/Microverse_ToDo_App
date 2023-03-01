@@ -37,32 +37,42 @@ li {
 }
 
 #input {
+  width: 100%;
   padding: 15px;
   border-radius: 5px;
   font-size: 1.2rem;
   border: 1px solid #999;
 }
 
-.list {
+.add {
+  display: flex;
+}
+
+.add button {
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.items {
   width: 100%;
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.list li label,
-.list li {
+.items li {
   display: flex;
   align-items: center;
   gap: 30px;
 }
 
-.list li {
+.items li {
   justify-content: space-between;
   border-bottom: 1px solid rgb(212, 210, 210);
 }
 
-p {
+.item-description {
   font-size: 1.2rem;
+  color: black;
 }
 
 h3 {
@@ -77,4 +87,9 @@ h3:hover {
 
 .task i {
   cursor: pointer;
+}
+
+.input:checked + .item-description {
+  color: #999;
+  text-decoration: line-through;
 }
