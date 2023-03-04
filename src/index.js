@@ -1,11 +1,13 @@
 /* eslint-disable import/no-cycle */
 /** @format */
+
 import './style.css';
-import addItems from './modules/add.js';
-import refreshList from './modules/refresh.js';
-import removeItem from './modules/remove.js';
-import clearInput from './modules/clear.js';
-import makeEditable from './modules/edit.js';
+import {
+  addItems,
+  refreshList,
+  clearInput,
+  sort,
+} from './modules/addremove.js';
 
 const USER_INPUT = document.getElementById('input');
 
@@ -16,8 +18,7 @@ USER_INPUT.addEventListener('keyup', (e) => {
   if (e.key === 'Enter' && userValue) {
     addItems();
     clearInput();
-    removeItem();
-    makeEditable();
+    sort();
   }
 });
 
