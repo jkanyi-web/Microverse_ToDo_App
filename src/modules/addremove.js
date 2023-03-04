@@ -1,14 +1,30 @@
 /* eslint-disable import/no-cycle */
 /**
+ * eslint-disable import/no-cycle
+ *
+ * @format
+ */
+
+/**
+ * eslint-disable import/no-cycle
+ *
+ * @format
+ */
+
+/**
+ * eslint-disable import/no-cycle
+ *
+ * @format
+ */
+
+/**
  * eslint-disable no-use-before-define
  *
  * @format
  */
 
 import USER_INPUT from '../index.js';
-import removeItem from './remove.js';
-
-const ITEMS_CONTAINER = document.querySelector('.items');
+import { refreshList } from './update.js';
 
 function getItems() {
   const value = localStorage.getItem('todos') || '[]';
@@ -27,44 +43,6 @@ function sort() {
   items.sort((a, b) => a.index - b.index);
 }
 
-function updateItem(item, key, value) {
-  item[key] = value;
-  setItems(items);
-}
-
-function refreshList() {
-  sort();
-
-  ITEMS_CONTAINER.innerHTML = '';
-
-  items.forEach((item) => {
-    const itemElement = document.createElement('li');
-    itemElement.classList.add('task');
-    itemElement.innerHTML = `
-          <input class="input" type="checkbox" name="checkbox" id="one">
-          <input type="text" class="item-description">
-          <i class="fa-solid fa-trash"></i>
-    `;
-    const descriptionInput = itemElement.querySelector('.item-description');
-    const completedInput = itemElement.querySelector('.input');
-
-    descriptionInput.value = item.description;
-    completedInput.checked = item.completed;
-
-    descriptionInput.addEventListener('change', () => {
-      updateItem(item, 'description', descriptionInput.value);
-    });
-
-    completedInput.addEventListener('change', () => {
-      updateItem(item, 'completed', completedInput.checked);
-    });
-
-    ITEMS_CONTAINER.append(itemElement);
-  });
-  removeItem();
-  setItems();
-}
-
 function addItems() {
   items.push({
     description: USER_INPUT.value,
@@ -76,12 +54,27 @@ function addItems() {
   refreshList();
 }
 
+function removeItem() {
+  const deleteButtons = document.querySelectorAll('.fa-solid.fa-trash');
+  deleteButtons.forEach((btn, id) => {
+    btn.addEventListener('click', (e) => {
+      items.splice(id, 1);
+      e.target.parentElement.remove();
+      items.forEach((item, index) => {
+        item.index = index + 1;
+      });
+      setItems();
+      refreshList();
+    });
+  });
+}
+
 function clearInput() {
   USER_INPUT.value = '';
 }
 
 export {
-  addItems, refreshList, clearInput, sort, setItems,
+  addItems, clearInput, removeItem, sort, setItems,
 };
 
 export default items;

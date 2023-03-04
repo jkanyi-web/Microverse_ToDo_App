@@ -1,17 +1,13 @@
 /* eslint-disable import/no-cycle */
-/** @format */
 
 import './style.css';
-import {
-  addItems,
-  refreshList,
-  clearInput,
-  sort,
-} from './modules/addremove.js';
+import { refreshList, clearAllCompleted } from './modules/update.js';
+import { addItems, clearInput, sort } from './modules/addremove.js';
 
 const USER_INPUT = document.getElementById('input');
 
 refreshList();
+clearAllCompleted();
 
 USER_INPUT.addEventListener('keyup', (e) => {
   const userValue = USER_INPUT.value.trim();
