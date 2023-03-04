@@ -1,37 +1,25 @@
+/* eslint-disable import/no-cycle */
 /** @format */
+
 import './style.css';
+import {
+  addItems,
+  refreshList,
+  clearInput,
+  sort,
+} from './modules/addremove.js';
 
-const listContainer = document.querySelector('.list');
+const USER_INPUT = document.getElementById('input');
 
-const tasks = [
-  {
-    description: 'Cook',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'complete project',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'rest',
-    completed: false,
-    index: 3,
-  },
-];
+refreshList();
 
-tasks.sort((a, b) => a.index - b.index);
-
-tasks.forEach((task) => {
-  const li = document.createElement('li');
-  li.classList.add('task');
-  li.innerHTML = `
-        <label for="${task.index}">
-          <input type="checkbox" name="checkbox" id="${task.index}">
-          <p>${task.description}</p>
-        </label>
-        <i class="fa-solid fa-trash"></i>      
-  `;
-  listContainer.append(li);
+USER_INPUT.addEventListener('keyup', (e) => {
+  const userValue = USER_INPUT.value.trim();
+  if (e.key === 'Enter' && userValue) {
+    addItems();
+    clearInput();
+    sort();
+  }
 });
+
+export default USER_INPUT;
