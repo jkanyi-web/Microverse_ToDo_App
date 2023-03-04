@@ -4,6 +4,7 @@
  * @format
  */
 
+// eslint-disable-next-line import/no-cycle
 import items, { setItems, removeItem, sort } from './addremove.js';
 
 const ITEMS_CONTAINER = document.querySelector('.items');
