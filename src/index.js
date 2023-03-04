@@ -1,6 +1,10 @@
-/* eslint-disable import/no-cycle */
+/**
+ *
+ * @format
+ */
 
 import './style.css';
+// eslint-disable-next-line import/no-cycle
 import { refreshList, clearAllCompleted } from './modules/update.js';
 import { addItems, clearInput, sort } from './modules/addremove.js';
 

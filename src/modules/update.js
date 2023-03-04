@@ -1,4 +1,9 @@
-/* eslint-disable import/no-cycle */
+/**
+ * eslint-disable import/no-cycle
+ *
+ * @format
+ */
+
 import items, { setItems, removeItem, sort } from './addremove.js';
 
 const ITEMS_CONTAINER = document.querySelector('.items');

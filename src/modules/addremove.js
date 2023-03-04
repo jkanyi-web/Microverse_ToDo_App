@@ -1,5 +1,12 @@
-/* eslint-disable import/no-cycle */
+/**
+ * eslint-disable import/no-cycle
+ *
+ * @format
+ */
+
+// eslint-disable-next-line import/no-cycle
 import USER_INPUT from '../index.js';
+// eslint-disable-next-line import/no-cycle
 import { refreshList } from './update.js';
 
 function getItems() {
