@@ -1,28 +1,4 @@
 /* eslint-disable import/no-cycle */
-/**
- * eslint-disable import/no-cycle
- *
- * @format
- */
-
-/**
- * eslint-disable import/no-cycle
- *
- * @format
- */
-
-/**
- * eslint-disable import/no-cycle
- *
- * @format
- */
-
-/**
- * eslint-disable no-use-before-define
- *
- * @format
- */
-
 import USER_INPUT from '../index.js';
 import { refreshList } from './update.js';
 

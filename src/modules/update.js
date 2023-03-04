@@ -1,42 +1,4 @@
 /* eslint-disable import/no-cycle */
-/* eslint-disable no-restricted-globals */
-/**
- * eslint-disable import/no-cycle
- *
- * @format
- */
-
-/**
- * eslint-disable import/no-cycle
- *
- * @format
- */
-
-/**
- * eslint-disable import/no-cycle
- *
- * @format
- */
-
-/**
- * eslint-disable import/no-cycle
- *
- * @format
- */
-
-/**
- * eslint-disable import/no-cycle
- *
- * @format
- */
-
-/**
- * eslint-disable import/no-cycle
- *
- * @format
- */
-
-/** @format */
 import items, { setItems, removeItem, sort } from './addremove.js';
 
 const ITEMS_CONTAINER = document.querySelector('.items');
@@ -97,6 +59,7 @@ function clearAllCompleted() {
     localStorage.clear();
     localStorage.setItem('todos', finalList);
 
+    // eslint-disable-next-line no-restricted-globals
     location.reload();
   });
 }
